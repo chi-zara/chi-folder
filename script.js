@@ -1,16 +1,21 @@
+
 // set initial count
-let count =0;
+let count = 0;
 
 // select value and buttons
-const value = document.querySelector("#value");
-const btns = document.querySelectorAll(".btn");
+const value = document.querySelector('#value');
+const btns = document.querySelectorAll('.btn');
 
-btns.forEech(funtion () {
-  btn.addEventListener('click', function(e){
+btns.forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
     const style = e.currentTarget.classList;
-    if(style.container(decrease)){
-     count--;
+    if (style.contains('decrease')) {
+      count--;
+    } else if (style.contains('increase')) {
+      count++;
+    } else if (style.contains('reset')) {
+      count = 0;
     }
     value.textContent = count;
-  })
+  });
 });
